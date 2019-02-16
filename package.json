@@ -4,7 +4,8 @@
   "description": "Securely Deploy Solidity Smart Contracts via Governance",
   "main": "index.js",
   "dependencies": {
-    "truffle": "^5.0.1"
+    "truffle": "^5.0.1",
+    "zos-lib": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {
