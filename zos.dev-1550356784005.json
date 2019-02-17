@@ -1,0 +1,315 @@
+{
+  "contracts": {
+    "SafeDeploy": {
+      "address": "0x07a457d878BF363E0Bb5aa0B096092f941e19962",
+      "constructorCode": "608060405234801561001057600080fd5b50612cde806100206000396000f3fe",
+      "bodyBytecodeHash": "0e70a1130c7ae142b55d6504012521293091415c35463c4c417b141fb0612dae",
+      "localBytecodeHash": "5a846f76a07013a5f2dcc91fe0e7fb08e68d3b9b61023c6471f2a31bf71d14ff",
+      "deployedBytecodeHash": "5a846f76a07013a5f2dcc91fe0e7fb08e68d3b9b61023c6471f2a31bf71d14ff",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_address": {
+          "id": "t_address",
+          "kind": "elementary",
+          "label": "address"
+        },
+        "t_int256": {
+          "id": "t_int256",
+          "kind": "elementary",
+          "label": "int256"
+        },
+        "t_struct<SafeDeploy.Proposal>": {
+          "id": "t_struct<SafeDeploy.Proposal>",
+          "kind": "struct",
+          "label": "SafeDeploy.Proposal",
+          "members": [
+            {
+              "label": "recipient",
+              "astId": 149,
+              "type": "t_address",
+              "src": "1628:17:0"
+            },
+            {
+              "label": "amount",
+              "astId": 151,
+              "type": "t_uint256",
+              "src": "1655:11:0"
+            },
+            {
+              "label": "description",
+              "astId": 153,
+              "type": "t_string",
+              "src": "1676:18:0"
+            },
+            {
+              "label": "minExecutionDate",
+              "astId": 155,
+              "type": "t_uint256",
+              "src": "1704:21:0"
+            },
+            {
+              "label": "executed",
+              "astId": 157,
+              "type": "t_bool",
+              "src": "1735:13:0"
+            },
+            {
+              "label": "proposalPassed",
+              "astId": 159,
+              "type": "t_bool",
+              "src": "1758:19:0"
+            },
+            {
+              "label": "numberOfVotes",
+              "astId": 161,
+              "type": "t_uint256",
+              "src": "1787:18:0"
+            },
+            {
+              "label": "currentResult",
+              "astId": 163,
+              "type": "t_int256",
+              "src": "1815:17:0"
+            },
+            {
+              "label": "proposalHash",
+              "astId": 165,
+              "type": "t_bytes32",
+              "src": "1842:20:0"
+            },
+            {
+              "label": "votes",
+              "astId": 168,
+              "type": "t_array:dyn<t_struct<SafeDeploy.Vote>>",
+              "src": "1872:12:0"
+            },
+            {
+              "label": "voted",
+              "astId": 172,
+              "type": "t_mapping<t_bool>",
+              "src": "1894:31:0"
+            }
+          ]
+        },
+        "t_string": {
+          "id": "t_string",
+          "kind": "elementary",
+          "label": "string"
+        },
+        "t_bytes32": {
+          "id": "t_bytes32",
+          "kind": "elementary",
+          "label": "bytes32"
+        },
+        "t_struct<SafeDeploy.Vote>": {
+          "id": "t_struct<SafeDeploy.Vote>",
+          "kind": "struct",
+          "label": "SafeDeploy.Vote",
+          "members": [
+            {
+              "label": "inSupport",
+              "astId": 182,
+              "type": "t_bool",
+              "src": "2058:14:0"
+            },
+            {
+              "label": "voter",
+              "astId": 184,
+              "type": "t_address",
+              "src": "2082:13:0"
+            },
+            {
+              "label": "justification",
+              "astId": 186,
+              "type": "t_string",
+              "src": "2105:20:0"
+            }
+          ]
+        },
+        "t_array:dyn<t_struct<SafeDeploy.Vote>>": {
+          "id": "t_array:dyn<t_struct<SafeDeploy.Vote>>",
+          "valueType": "t_struct<SafeDeploy.Vote>",
+          "length": "dyn",
+          "kind": "array",
+          "label": "SafeDeploy.Vote[]"
+        },
+        "t_mapping<t_bool>": {
+          "id": "t_mapping<t_bool>",
+          "valueType": "t_bool",
+          "label": "mapping(key => bool)",
+          "kind": "mapping"
+        },
+        "t_array:dyn<t_struct<SafeDeploy.Proposal>>": {
+          "id": "t_array:dyn<t_struct<SafeDeploy.Proposal>>",
+          "valueType": "t_struct<SafeDeploy.Proposal>",
+          "length": "dyn",
+          "kind": "array",
+          "label": "SafeDeploy.Proposal[]"
+        },
+        "t_mapping<t_uint256>": {
+          "id": "t_mapping<t_uint256>",
+          "valueType": "t_uint256",
+          "label": "mapping(key => uint256)",
+          "kind": "mapping"
+        },
+        "t_struct<SafeDeploy.Member>": {
+          "id": "t_struct<SafeDeploy.Member>",
+          "kind": "struct",
+          "label": "SafeDeploy.Member",
+          "members": [
+            {
+              "label": "member",
+              "astId": 175,
+              "type": "t_address",
+              "src": "1962:14:0"
+            },
+            {
+              "label": "name",
+              "astId": 177,
+              "type": "t_string",
+              "src": "1986:11:0"
+            },
+            {
+              "label": "memberSince",
+              "astId": 179,
+              "type": "t_uint256",
+              "src": "2007:16:0"
+            }
+          ]
+        },
+        "t_array:dyn<t_struct<SafeDeploy.Member>>": {
+          "id": "t_array:dyn<t_struct<SafeDeploy.Member>>",
+          "valueType": "t_struct<SafeDeploy.Member>",
+          "length": "dyn",
+          "kind": "array",
+          "label": "SafeDeploy.Member[]"
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "zos-lib/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 827,
+          "type": "t_bool",
+          "src": "757:24:2"
+        },
+        {
+          "contract": "Initializable",
+          "path": "zos-lib/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 829,
+          "type": "t_bool",
+          "src": "876:25:2"
+        },
+        {
+          "contract": "Initializable",
+          "path": "zos-lib/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 878,
+          "type": "t_array:50<t_uint256>",
+          "src": "1891:29:2"
+        },
+        {
+          "contract": "Ownable",
+          "path": "openzeppelin-eth/contracts/ownership/Ownable.sol",
+          "label": "_owner",
+          "astId": 711,
+          "type": "t_address",
+          "src": "302:22:1"
+        },
+        {
+          "contract": "Ownable",
+          "path": "openzeppelin-eth/contracts/ownership/Ownable.sol",
+          "label": "______gap",
+          "astId": 822,
+          "type": "t_array:50<t_uint256>",
+          "src": "2186:29:1"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "minimumQuorum",
+          "astId": 87,
+          "type": "t_uint256",
+          "src": "932:25:0"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "debatingPeriodInMinutes",
+          "astId": 89,
+          "type": "t_uint256",
+          "src": "963:35:0"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "majorityMargin",
+          "astId": 91,
+          "type": "t_int256",
+          "src": "1004:25:0"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "proposals",
+          "astId": 94,
+          "type": "t_array:dyn<t_struct<SafeDeploy.Proposal>>",
+          "src": "1035:27:0"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "numProposals",
+          "astId": 96,
+          "type": "t_uint256",
+          "src": "1068:24:0"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "memberId",
+          "astId": 100,
+          "type": "t_mapping<t_uint256>",
+          "src": "1098:41:0"
+        },
+        {
+          "contract": "SafeDeploy",
+          "path": "contracts/SafeDeploy.sol",
+          "label": "members",
+          "astId": 103,
+          "type": "t_array:dyn<t_struct<SafeDeploy.Member>>",
+          "src": "1145:23:0"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": []
+      }
+    }
+  },
+  "solidityLibs": {},
+  "proxies": {},
+  "zosversion": "2.2",
+  "version": "0.1.0"
+}
