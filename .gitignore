@@ -39,3 +39,5 @@ build/
 .node-xmlhttprequest-*
 
 .zos.session
+
+zos.dev-*.json

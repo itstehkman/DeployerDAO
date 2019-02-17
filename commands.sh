@@ -2,8 +2,8 @@ function zos_ganache() {
   ganache-cli --port 9545 --deterministic
 }
 
-function zos_ganache() {
-  ganache-cli --port 9545 --deterministic
+function zos_address() {
+  cat zos.dev-1550373994689.json | jq '.contracts.SafeDeploy.address' | tr -d '"'
 }
 
 function zos_session() {

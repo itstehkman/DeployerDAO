@@ -1,6 +1,5 @@
 pragma solidity >=0.4.22 <0.6.0;
 
-// openzellepn-eth
 import 'openzeppelin-eth/contracts/ownership/Ownable.sol';
 import "zos-lib/contracts/Initializable.sol";
 
@@ -83,6 +82,7 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
         uint minutesForDebate,
         int marginOfVotesForMajority
     )  initializer payable public {
+        super.initialize(msg.sender);
         changeVotingRules(minimumQuorumForProposals, minutesForDebate, marginOfVotesForMajority);
         // It’s necessary to add an empty first member
         addMember(address(0), "");
