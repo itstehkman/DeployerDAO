@@ -5,5 +5,8 @@
   "contracts": {
     "SafeDeploy": "SafeDeploy",
     "DeployProposal": "DeployProposal"
+  },
+  "dependencies": {
+    "chainlink": "^0.1.0"
   }
 }
