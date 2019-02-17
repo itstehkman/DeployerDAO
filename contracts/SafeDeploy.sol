@@ -1,7 +1,7 @@
-pragma solidity >=0.4.22 <0.6.0;
+pragma solidity ^0.5.0;
 
 import 'openzeppelin-eth/contracts/ownership/Ownable.sol';
-import "zos-lib/contracts/Initializable.sol";
+import 'zos-lib/contracts/Initializable.sol';
 
 contract tokenRecipient {
     event receivedEther(address sender, uint amount);
@@ -31,6 +31,7 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
     uint public numProposals;
     mapping (address => uint) public memberId;
     Member[] public members;
+    mapping(address => bool) public safeContracts;
 
     event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
     event Voted(uint proposalID, bool position, address voter, string justification);
@@ -126,6 +127,33 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
         memberId[targetMember] = 0;
         delete members[members.length-1];
         members.length--;
+    }
+
+    /**
+     * Check if address is member
+     *
+     * @param targetMember ethereum address to be checked
+     */
+    function isMember(address targetMember) public view {
+        memberId[targetMember] != 0;
+    }
+
+    /**
+     * Set the address as safe to use, since it fulfilled checks.
+     *
+     * @param deployed the deployed contract address
+     */
+    function setSafe(address deployed) onlyOwner external {
+      safeContracts[deployed] = true;
+    }
+
+    /**
+     * Check if the contract is safe to use.
+     *
+     * @param deployed the deployed contract address
+     */
+    function isSafe(address deployed) view external {
+      safeContracts[deployed] == true;
     }
 
     /**
