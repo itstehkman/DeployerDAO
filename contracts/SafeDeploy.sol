@@ -3,6 +3,8 @@ pragma solidity ^0.5.0;
 import 'openzeppelin-eth/contracts/ownership/Ownable.sol';
 import 'zos-lib/contracts/Initializable.sol';
 
+import './DeployProposal.sol';
+
 contract tokenRecipient {
     event receivedEther(address sender, uint amount);
     event receivedTokens(address _from, uint256 _value, address _token, bytes _extraData);
@@ -31,7 +33,8 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
     uint public numProposals;
     mapping (address => uint) public memberId;
     Member[] public members;
-    mapping(address => bool) public safeContracts;
+    mapping(address => bool) public safeProposals;
+    mapping(address => bool) public deployProposals;
 
     event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
     event Voted(uint proposalID, bool position, address voter, string justification);
@@ -68,6 +71,12 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
     // Modifier that allows only shareholders to vote and create new proposals
     modifier onlyMembers {
         require(memberId[msg.sender] != 0);
+        _;
+    }
+
+    // Modifier that allows only DeployProposals to update their safeness
+    modifier onlyDeployProposals {
+        require(deployProposals[msg.sender] != false);
         _;
     }
 
@@ -141,19 +150,19 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
     /**
      * Set the address as safe to use, since it fulfilled checks.
      *
-     * @param deployed the deployed contract address
+     * @param proposal the deploy proposal
      */
-    function setSafe(address deployed) onlyOwner external {
-      safeContracts[deployed] = true;
+    function setSafe(address proposal) onlyDeployProposals external {
+      safeProposals[proposal] = true;
     }
 
     /**
      * Check if the contract is safe to use.
      *
-     * @param deployed the deployed contract address
+     * @param proposal the deploy proposal
      */
-    function isSafe(address deployed) view external {
-      safeContracts[deployed] == true;
+    function isSafe(address proposal) view external {
+      safeProposals[proposal] == true;
     }
 
     /**
@@ -200,6 +209,7 @@ contract SafeDeploy is Initializable, Ownable, tokenRecipient {
         proposalID = proposals.length++;
         Proposal storage p = proposals[proposalID];
         p.recipient = beneficiary;
+        deployProposals[beneficiary] = true;
         p.amount = weiAmount;
         p.description = jobDescription;
         p.proposalHash = keccak256(abi.encodePacked(beneficiary, weiAmount, transactionBytecode));

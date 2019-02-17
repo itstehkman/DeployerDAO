@@ -3,6 +3,7 @@
   "name": "SecureDeploy",
   "version": "0.1.0",
   "contracts": {
-    "SafeDeploy": "SafeDeploy"
+    "SafeDeploy": "SafeDeploy",
+    "DeployProposal": "DeployProposal"
   }
 }
